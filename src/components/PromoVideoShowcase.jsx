@@ -8,11 +8,9 @@ import CountUp from "./CountUp";
 const VideoPlayer = ({ videoId, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
   const playerRef = useRef(null);
   const containerRef = useRef(null);
 
-  // Stable ID per component instance
   const uniqueId = useId();
   const playerId = `player-${videoId}-${uniqueId}`;
 
@@ -20,15 +18,9 @@ const VideoPlayer = ({ videoId, title }) => {
     if (!containerRef.current) return;
     containerRef.current.id = playerId;
 
-    // Load YT API if not already
-    if (!window.YT) {
-      const tag = document.createElement("script");
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
-
     const initializePlayer = () => {
+      if (playerRef.current) return;
+
       playerRef.current = new window.YT.Player(playerId, {
         videoId,
         playerVars: {
@@ -43,7 +35,6 @@ const VideoPlayer = ({ videoId, title }) => {
         events: {
           onReady: (event) => {
             event.target.playVideo();
-            setIsLoaded(true);
             setIsPlaying(true);
           },
           onStateChange: (event) => {
@@ -57,10 +48,25 @@ const VideoPlayer = ({ videoId, title }) => {
       });
     };
 
+    // Load script once
+    if (!document.getElementById("youtube-iframe-api")) {
+      const tag = document.createElement("script");
+      tag.id = "youtube-iframe-api";
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    }
+
     if (window.YT && window.YT.Player) {
       initializePlayer();
     } else {
-      window.onYouTubeIframeAPIReady = initializePlayer;
+      if (!window._ytPlayers) window._ytPlayers = [];
+      window._ytPlayers.push(initializePlayer);
+
+      if (!window.onYouTubeIframeAPIReady) {
+        window.onYouTubeIframeAPIReady = () => {
+          window._ytPlayers.forEach((init) => init());
+        };
+      }
     }
 
     return () => {
@@ -91,13 +97,8 @@ const VideoPlayer = ({ videoId, title }) => {
     <div className="w-full relative rounded-xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-[1.02]">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl opacity-75 blur group-hover:opacity-100"></div>
 
-      {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-
       <div className="relative aspect-video">
+        {/* Direct iframe mount (no spinner, no lazy load) */}
         <div ref={containerRef} className="absolute inset-0" />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -134,6 +135,7 @@ const VideoPlayer = ({ videoId, title }) => {
     </div>
   );
 };
+
 
 const DualVideoShowcase = () => {
   const [isHovered, setIsHovered] = useState(false);
