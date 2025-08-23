@@ -195,14 +195,13 @@ const DualVideoShowcase = () => {
             </div>
             <div className="hidden sm:block text-gray-400">|</div>
             <div className="text-gray-700 font-medium">
-              <CountUp
-                from={0}
+              {/* <CountUp
+                from={150}
                 href={100}
                 separator=","
-                direction="up"
-                duration={1}
+                duration={2}
                 className="count-up-text"
-              />
+              />{" "} */} 100
               {"+ Happy clients "}
             </div>
             <div className="hidden sm:block text-gray-400">|</div>

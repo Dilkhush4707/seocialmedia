@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 
@@ -14,7 +15,12 @@ export default function CountUp({
   onEnd,
 }) {
   const ref = useRef(null);
-  const motionValue = useMotionValue(direction === "down" ? to : from);
+
+  // Ensure from/to are always numbers
+  const safeFrom = Number(from) || 0;
+  const safeTo = Number(to) || 0;
+
+  const motionValue = useMotionValue(direction === "down" ? safeTo : safeFrom);
 
   const damping = 20 + 40 * (1 / duration);
   const stiffness = 100 * (1 / duration);
@@ -28,9 +34,11 @@ export default function CountUp({
 
   useEffect(() => {
     if (ref.current) {
-      ref.current.textContent = String(direction === "down" ? to : from);
+      ref.current.textContent = String(
+        direction === "down" ? safeTo : safeFrom
+      );
     }
-  }, [from, to, direction]);
+  }, [safeFrom, safeTo, direction]);
 
   useEffect(() => {
     if (isInView && startWhen) {
@@ -39,17 +47,14 @@ export default function CountUp({
       }
 
       const timeoutId = setTimeout(() => {
-        motionValue.set(direction === "down" ? from : to);
+        motionValue.set(direction === "down" ? safeFrom : safeTo);
       }, delay * 1000);
 
-      const durationTimeoutId = setTimeout(
-        () => {
-          if (typeof onEnd === "function") {
-            onEnd();
-          }
-        },
-        delay * 1000 + duration * 1000
-      );
+      const durationTimeoutId = setTimeout(() => {
+        if (typeof onEnd === "function") {
+          onEnd();
+        }
+      }, delay * 1000 + duration * 1000);
 
       return () => {
         clearTimeout(timeoutId);
@@ -61,8 +66,8 @@ export default function CountUp({
     startWhen,
     motionValue,
     direction,
-    from,
-    to,
+    safeFrom,
+    safeTo,
     delay,
     onStart,
     onEnd,
@@ -71,7 +76,7 @@ export default function CountUp({
 
   useEffect(() => {
     const unsubscribe = springValue.on("change", (latest) => {
-      if (ref.current) {
+      if (ref.current && typeof latest === "number" && !isNaN(latest)) {
         const options = {
           useGrouping: !!separator,
           minimumFractionDigits: 0,
@@ -79,7 +84,7 @@ export default function CountUp({
         };
 
         const formattedNumber = Intl.NumberFormat("en-US", options).format(
-          latest.toFixed(0)
+          Math.round(latest) // avoids NaN
         );
 
         ref.current.textContent = separator
@@ -91,5 +96,5 @@ export default function CountUp({
     return () => unsubscribe();
   }, [springValue, separator]);
 
-  return <span className={`${className}`} ref={ref} />;
+  return <span className={className} ref={ref} />;
 }
