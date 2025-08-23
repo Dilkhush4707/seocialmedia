@@ -1,10 +1,11 @@
 "use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
+import { Phone, MessageCircle, X } from "lucide-react"; // << use lucide icons
 
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = "+919461677122";
 
   const handleCallClick = () => {
@@ -59,38 +60,20 @@ const FloatingContact = () => {
         >
           <ActionButton
             onClick={handleWhatsAppClick}
-            icon={
-              <svg
-                viewBox="0 0 24 24"
-                className="w-full h-full text-white fill-current"
-              >
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967..." />
-              </svg>
-            }
+            icon={<MessageCircle className="w-full h-full text-white" />}
             label="Chat on WhatsApp"
             bgColor="bg-green-500 hover:bg-green-600"
           />
           <ActionButton
             onClick={handleCallClick}
-            icon={
-              <svg
-                viewBox="0 0 24 24"
-                className="w-full h-full text-white fill-current"
-              >
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56..." />
-              </svg>
-            }
+            icon={<Phone className="w-full h-full text-white" />}
             label="Call Us Now"
             bgColor="bg-blue-500 hover:bg-blue-600"
           />
         </div>
 
         {/* Main Character Toggle */}
-        <div
-          className="relative group"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="relative group">
           {/* Chat Bubble */}
           <div
             className={`absolute bottom-full right-0 mb-3 md:mb-4 transition-all duration-500 ${
@@ -128,19 +111,14 @@ const FloatingContact = () => {
                 alt="Chat Character"
                 width={48}
                 height={48}
-                className={`relative w-full h-full object-cover`}
+                className="relative w-full h-full object-cover"
               />
             </div>
 
             {/* Close button */}
             {isOpen && (
               <div className="absolute -top-1.5 -right-1.5 md:-top-2 md:-right-2 bg-red-500 rounded-full p-1.5 md:p-2 shadow-lg transition-transform duration-300 hover:scale-110">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 md:w-5 md:h-5 text-white fill-current"
-                >
-                  <path d="M19 6.41L17.59 5 12 10.59..." />
-                </svg>
+                <X className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </div>
             )}
 
