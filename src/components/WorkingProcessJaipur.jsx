@@ -121,6 +121,8 @@ const WorkingProcessJaipur = () => {
                   src="images/technology.jpg"
                   alt="Digital marketing expertise"
                   className="w-full h-full object-cover aspect-4/3"
+                  width={600}      // <-- Add width (adjust as needed)
+                  height={450}     // <-- Add height (adjust as needed)
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                   <div className="p-6 text-white">

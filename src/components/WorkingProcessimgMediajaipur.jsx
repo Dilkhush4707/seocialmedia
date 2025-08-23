@@ -113,6 +113,8 @@ const WorkingProcessimgMediajaipur = () => {
             src={services[activeIndex].image}
             alt={services[activeIndex].title}
             className="rounded-xl w-full h-auto object-cover"
+            width={500}      // <-- Add width (adjust as needed)
+            height={300}     // <-- Add height (adjust as needed)
           />
         </div>
       </div>
