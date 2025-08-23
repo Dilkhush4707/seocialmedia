@@ -197,61 +197,7 @@ const ContentWritingServicesJaipur = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          Best Content Writing Services in Jaipur | SEOcial Media Solutions
-        </title>
-        <meta
-          name="description"
-          content="Create impactful and engaging content with SEOcial Media's professional content writing services. Enhance your online presence with quality content."
-        />
-        <meta
-          name="keywords"
-          content="content writing services in Jaipur, SEO content writing Jaipur, professional content writers, blog writing services Jaipur, article writing Jaipur, website content writing, SEO copywriting, marketing content Jaipur, digital content services, freelance content writer Jaipur, top content writing agency, social media content, content for websites, SEOcial Media Solutions"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="author" content="SEOcial Media Solutions" />
-        <meta name="publisher" content="SEOcial Media Solutions" />
-        <link
-          rel="canonical"
-          href="https://seocialmedia.in/top-content-writing-company-jaipur"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Best Content Writing Services in Jaipur | SEOcial Media Solutions"
-        />
-        <meta
-          property="og:description"
-          content="Discover professional content solutions tailored to your business needs. Let our expert writers craft impactful SEO-optimized content that drives traffic and engagement."
-        />
-        <meta
-          property="og:image"
-          content="https://seocialmedia.in/images/og-home.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://seocialmedia.in/top-content-writing-company-jaipur"
-        />
-        <meta property="og:site_name" content="SEOcial Media Solutions" />
-        <meta
-          property="article:publisher"
-          content="https://www.facebook.com/SEODigitalSolutions"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Top Content Writing Company in Jaipur | SEOcial Media"
-        />
-        <meta
-          name="twitter:description"
-          content="Looking for quality content writing in Jaipur? SEOcial Media offers expert SEO-optimized content to grow your brand's online presence."
-        />
-        <meta
-          name="twitter:image"
-          content="https://seocialmedia.in/images/og-home.jpg"
-        />
-      </Head>
+
 
       <section className="bg-gradient-to-br from-emerald-50 via-white to-teal-50">
         <div className="px-4 py-16 md:px-16 lg:px-24">

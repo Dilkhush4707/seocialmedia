@@ -217,23 +217,7 @@ const GoogleServicesJaipur = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          Best Lead Generation Agency in Jaipur | SEOcial Media Solutions
-        </title>
-        <meta
-          name="description"
-          content="Get more leads with expert Google Ads & Business Profile management. Jaipur’s trusted digital marketing & local SEO pros. Real results. No fluff."
-        />
-        <meta
-          name="keywords"
-          content="Lead generation Jaipur, Google Ads experts, local SEO Jaipur, digital marketing agency"
-        />
-        <link
-          rel="canonical"
-          href="https://seocialmedia.in/top-lead-generation-company-jaipur"
-        />
-      </Head>
+   
 
       <section className="bg-gradient-to-br from-green-50 via-white to-lime-50">
         <div className="px-4 py-16 md:px-16 lg:px-24">

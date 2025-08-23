@@ -166,20 +166,7 @@ const VideoEditing = () => {
 
   return (
     <>
-      <Head>
-        <title>Best Video Editing Services & Company in Jaipur | SEOcial Media</title>
-        <meta
-          name="description"
-          content="Transform your raw footage into professional videos with SEOcial Media. We offer expert video editing services for businesses, social media, and more."
-        />
-        <meta name="keywords" content="video editing Jaipur, video production, corporate videos, social media videos, video editor Jaipur, professional editing services, SEOcial Media Solutions" />
-        <link rel="canonical" href="https://seocialmedia.in/video-editing-company-jaipur" />
-        <meta property="og:title" content="Best Video Editing Services & Company in Jaipur" />
-        <meta property="og:description" content="Professional video editing services to elevate your brand. We create high-quality, engaging videos for all your marketing and business needs." />
-        <meta property="og:image" content="https://seocialmedia.in/images/video-editing-og.jpg" />
-        <meta property="og:url" content="https://seocialmedia.in/video-editing-company-jaipur" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+     
 
       <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="px-4 py-16 md:px-16 lg:px-24">

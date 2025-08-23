@@ -153,32 +153,7 @@ const GoogleAdsServices = () => {
 
   return (
     <>
-      <Head>
-        <title>Best Google Ads Company in Jaipur | SEOcial Media Solutions</title>
-        <meta
-          name="description"
-          content="Maximize your ROI with SEOcial Media's Google Ads management services. Reach your audience with highly targeted and effective ad campaigns."
-        />
-        <meta
-          name="keywords"
-          content="IT services, web development, SEO, digital marketing"
-        />
-        <link rel="canonical" href="https://seocialmedia.in/google-ads" />
-        <meta
-          property="og:title"
-          content="Best Google Ads Service Company in Jaipur| SEOcial Media Solutions"
-        />
-        <meta
-          property="og:description"
-          content="Discover professional IT solutions tailored to your business needs."
-        />
-        <meta
-          property="og:image"
-          content="https://seocialmedia.in/images/og-home.jpg"
-        />
-        <meta property="og:url" content="https://seocialmedia.in/" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
+     
       <section className="bg-gradient-to-br from-teal-50 via-white to-blue-50">
         <div className="px-4 py-16 md:px-16 lg:px-24">
           <div className="max-w-7xl mx-auto">

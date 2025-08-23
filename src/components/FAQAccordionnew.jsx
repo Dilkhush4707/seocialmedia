@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image"; // Import Image from next/image
 
 const FAQAccordionnew = ({
   content,
@@ -72,6 +73,17 @@ const FAQAccordionnew = ({
             </div>
           </motion.div>
         ))}
+      </div>
+
+      {/* Add the Image component here */}
+      <div className="mt-10">
+        <Image
+          src="/images/other/seo.jpg"
+          alt="SEO & Marketing"
+          width={600} // Add width
+          height={400} // Add height (adjust as needed)
+          className="w-full h-48 object-cover"
+        />
       </div>
     </div>
   );

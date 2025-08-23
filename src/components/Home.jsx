@@ -230,15 +230,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Head>
-        <title>Best Digital Marketing Agency in Jaipur | SEOcial Media Solutions</title>
-        <meta
-          name="description"
-          content="Best Digital Marketing Agency in Jaipur delivering ROI-driven results. Expert services in SEO, Social Media, PPC & Content Marketing."
-        />
-        <link rel="canonical" href="https://seocialmedia.in/" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-      </Head>
+   
 
       <div className="relative">
         <h1 className="hidden">Best Digital Marketing Agency in Jaipur</h1>

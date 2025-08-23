@@ -190,64 +190,7 @@ const SocialMediaServices = () => {
 
   return (
     <>
-    <Head>
-      <title>
-        Best Social Media Marketing Company in Jaipur | SEOcial Media 
-      </title>
-
-      <meta
-        name="description"
-        content="Looking for the best social media marketing company in Jaipur? SEOcial Media Solutions offers expert Facebook, Instagram, and digital branding services to grow your business online effectively."
-      />
-      <meta
-        name="keywords"
-        content="social media marketing Jaipur, Facebook marketing Jaipur, Instagram marketing Jaipur, digital branding Jaipur, best social media agency Jaipur, online marketing Jaipur, SEOcial Media Solutions, content marketing Jaipur, paid ads Jaipur, influencer marketing Jaipur"
-      />
-      <meta name="robots" content="index, follow" />
-      <meta name="author" content="SEOcial Media Solutions" />
-      <meta name="publisher" content="SEOcial Media Solutions" />
-      <meta httpEquiv="Content-Language" content="en" />
-
-      <link
-        rel="canonical"
-        href="https://seocialmedia.in/social-media-marketing-jaipur"
-      />
-
-      {/* Open Graph Meta */}
-      <meta
-        property="og:title"
-        content="Best Social Media Marketing Company in Jaipur | SEOcial Media Solutions"
-      />
-      <meta
-        property="og:description"
-        content="Grow your business online with Jaipur’s top social media marketing company. Expert Facebook, Instagram, and content strategies tailored for your brand."
-      />
-      <meta
-        property="og:image"
-        content="https://seocialmedia.in/images/social-media-marketing-jaipur-og.jpg"
-      />
-      <meta
-        property="og:url"
-        content="https://seocialmedia.in/social-media-marketing-jaipur"
-      />
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="SEOcial Media Solutions" />
-
-      {/* Twitter Meta */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:title"
-        content="Top Social Media Marketing Agency in Jaipur | SEOcial Media"
-      />
-      <meta
-        name="twitter:description"
-        content="SEOcial Media Solutions provides strategic social media marketing services in Jaipur to enhance your brand visibility and drive engagement."
-      />
-      <meta
-        name="twitter:image"
-        content="https://seocialmedia.in/images/social-media-marketing-jaipur-og.jpg"
-      />
-    </Head>
+    
 
     <div className="min-h-screen">
       <section className="bg-gradient-to-br from-pink-50 via-white to-purple-50">

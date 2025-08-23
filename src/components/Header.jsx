@@ -103,7 +103,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/">
               <Image
-                src="/company-logo.jpeg"
+                src="/images/company-logo.jpg"
                 alt="Company Logo"
                 className="h-14"
                 width={150}

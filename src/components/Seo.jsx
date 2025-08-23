@@ -244,44 +244,7 @@ const Seo = () => {
   ];
   return (
     <section className="bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <Head>
-        <title>Top SEO Company in Jaipur – Get Ranks and Leads Growth</title>
-        <meta
-          name="description"
-          content="SEOcial Media Solutions is one of the top SEO Company in Jaipur, which offers ROI-Driven online growth, organic ranking and leads to their client's business. Enquire Now!"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="UTF-8" />
-        <meta 
-          name="keywords" 
-          content="SEO services Jaipur, digital marketing agency, search engine optimization, SEO company Jaipur, best SEO services, local SEO, SEOcial Media Solutions" 
-        />
-        
-        {/* Open Graph Tags for Social Media */}
-        <meta property="og:title" content="Best SEO Services in Jaipur | Digital Marketing & SEO Services | SEOcial Media Solutions" />
-        <meta property="og:description" content="SEOcial Media is one of the top SEO Company in Jaipur, which offers ROI-Driven online growth, organic ranking and leads to their client's business. Enquire Now!" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://seocialmedia.in/seo" />
-        <meta property="og:image" content="https://seocialmedia.in/images/seo-agency-jaipur.jpg" />
-        <meta property="og:locale" content="en_IN" />
-        
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Top SEO Agency in Jaipur | Digital Marketing & SEO Services" />
-        <meta name="twitter:description" content="Award-winning SEO agency in Jaipur with 98% client satisfaction. Expert digital marketing & SEO services." />
-        <meta name="twitter:image" content="https://seocialmedia.in/images/seo-agency-jaipur.jpg" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://seocialmedia.in/seo-company-jaipur" />
-        
-        {/* Additional SEO Meta Tags */}
-        <meta name="author" content="SEOcial Media Solutions" />
-        <meta name="geo.region" content="IN-RJ" />
-        <meta name="geo.placename" content="Jaipur" />
-        <meta name="geo.position" content="26.9124;75.7873" />
-        <meta name="ICBM" content="26.9124, 75.7873" />
-      </Head>
+      
 
       <div className="px-4 py-16 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto">

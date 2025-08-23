@@ -244,61 +244,7 @@ const SeoAjmerpage = () => {
 
   return (
     <section className="bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <Head>
-        <title>
-          Best SEO Services Company in Ajmer | SEOcial Media Solutions
-        </title>
-        <meta
-          name="description"
-          content="Rank higher on Google with the best SEO company in Ajmer. SEOcial Media Solutions offers expert search engine optimization services to drive traffic, leads, and sales."
-        />
-        <meta
-          name="keywords"
-          content="SEO company Ajmer, search engine optimization Ajmer, best SEO agency Ajmer, local SEO Ajmer, Google ranking Ajmer, digital marketing Ajmer, affordable SEO services Ajmer"
-        />
-        <meta name="author" content="SEOcial Media Solutions" />
-        <meta name="publisher" content="SEOcial Media Solutions" />
-        <meta name="robots" content="index, follow" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <link
-          rel="canonical"
-          href="https://seocialmedia.in/seo-company-ajmer"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Top SEO Company in Ajmer | SEOcial Media Solutions"
-        />
-        <meta
-          property="og:description"
-          content="Grow your business with Ajmer’s top SEO agency. We improve your visibility on Google with proven SEO strategies, keyword targeting, and content optimization."
-        />
-        <meta
-          property="og:image"
-          content="https://seocialmedia.in/images/og-ajmer-seo.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://seocialmedia.in/seo-company-ajmer"
-        />
-        <meta
-          property="og:site_name"
-          content="SEOcial Media Solutions"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Ajmer’s Best SEO Company | SEOcial Media"
-        />
-        <meta
-          name="twitter:description"
-          content="Get your website to the top of search engine results with the best SEO company in Ajmer. Our team delivers real results through advanced SEO strategies."
-        />
-        <meta
-          name="twitter:image"
-          content="https://seocialmedia.in/images/og-ajmer-seo.jpg"
-        />
-      </Head>
+    
 
       <div className="px-4 py-16 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto">

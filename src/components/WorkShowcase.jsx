@@ -26,56 +26,56 @@ const WorkShowcase = () => {
 
   const clientIndustries = [
     {
-      image: "images/realestate.jpg",
+      image: "/images/realestate.jpg",
       industry: "Real Estate",
       description: "Helping property developers and realtors boost online visibility",
       achievement: "300% Lead Generation Increase",
       clientType: "Property Developers & Agents"
     },
     {
-      image: "images/medical.jpg",
+      image: "/images/medical.jpg",
       industry: "Healthcare",
       description: "Digital solutions for medical practices and healthcare providers",
       achievement: "200% Patient Inquiries",
       clientType: "Medical Practices & Clinics"
     },
     {
-      image: "images/online.jpg",
+      image: "/images/online.jpg",
       industry: "E-commerce",
       description: "Driving sales for online retailers and brands",
       achievement: "5x Revenue Growth",
       clientType: "Online Retailers & D2C Brands"
     },
     {
-      image: "images/school.jpg",
+      image: "/images/school.jpg",
       industry: "Education",
       description: "Marketing solutions for educational institutions",
       achievement: "150% Enrollment Growth",
       clientType: "Schools & Universities"
     },
     {
-      image: "images/law.jpg",
+      image: "/images/law.jpg",
       industry: "Professional Services",
       description: "Digital presence for law firms and consultancies",
       achievement: "400% Quality Leads",
       clientType: "Law Firms & Consultants"
     },
     {
-      image: "images/hotel.jpg",
+      image: "/images/hotel.jpg",
       industry: "Restaurant & Hospitality",
       description: "Boosting bookings and online orders",
       achievement: "250% Booking Increase",
       clientType: "Restaurants & Hotels"
     },
     {
-      image: "images/tech.jpg",
+      image: "/images/tech.jpg",
       industry: "Technology",
       description: "Marketing for SaaS and tech companies",
       achievement: "180% User Acquisition",
       clientType: "SaaS & Tech Companies"
     },
     {
-      image: "images/technology.jpg",
+      image: "/images/technology.jpg",
       industry: "Manufacturing",
       description: "Digital solutions for industrial clients",
       achievement: "3x B2B Leads",

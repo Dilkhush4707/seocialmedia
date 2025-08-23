@@ -58,6 +58,8 @@ const HoverSlideCards = () => {
                 src={card.image}
                 alt={card.title}
                 className="absolute inset-0 w-full h-full object-cover"
+                width={600}
+                height={450}
               />
 
               <div
@@ -96,6 +98,8 @@ const HoverSlideCards = () => {
               src={card.image}
               alt={card.title}
               className="w-full h-48 object-cover"
+              width={600}      // Add width
+              height={192}     // Add height (48 * 4 = 192px)
             />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-4">
               <h2 className="text-white font-bold text-lg">{card.title}</h2>

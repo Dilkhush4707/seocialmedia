@@ -56,59 +56,7 @@ function SeoAjmer() {
   
   return (
     <>
-      <Head>
-        <title>Top Digital Marketing Services in Ajmer | SEOcial Media</title>
-        <meta
-          name="description"
-          content="Looking for the best digital marketing services in Ajmer? SEOcial Media Solutions offers expert SEO, social media marketing, PPC ads, and website promotion to grow your business online effectively."
-        />
-        <meta
-          name="keywords"
-          content="digital marketing Ajmer, SEO company Ajmer, social media marketing Ajmer, PPC services Ajmer, best marketing agency Ajmer, online promotion Ajmer, SEOcial Media Solutions"
-        />
-        <meta name="author" content="SEOcial Media Solutions" />
-        <meta name="publisher" content="SEOcial Media Solutions" />
-        <meta name="robots" content="index, follow" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <link
-          rel="canonical"
-          href="https://seocialmedia.in/digital-marketing-services-ajmer"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Top Digital Marketing Services in Ajmer | Best SEO Company"
-        />
-        <meta
-          property="og:description"
-          content="Grow your business online with Ajmer’s top digital marketing company. Expert SEO, social media promotions, PPC ads, and website marketing tailored for your brand."
-        />
-        <meta
-          property="og:image"
-          content="https://seocialmedia.in/images/digital-marketing-ajmer-og.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://seocialmedia.in/digital-marketing-services-ajmer"
-        />
-        <meta
-          property="og:site_name"
-          content="SEOcial Media Solutions - Ajmer"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Top Digital Marketing & SEO Company in Ajmer | SEOcial Media"
-        />
-        <meta
-          name="twitter:description"
-          content="SEOcial Media Solutions offers leading digital marketing and SEO services in Ajmer to enhance your brand visibility and drive business growth."
-        />
-        <meta
-          name="twitter:image"
-          content="https://seocialmedia.in/images/digital-marketing-ajmer-og.jpg"
-        />
-      </Head>
+  
 
       <div className="max-w-full mx-auto">
         <SEOLandingSection />

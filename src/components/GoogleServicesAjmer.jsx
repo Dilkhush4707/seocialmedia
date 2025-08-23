@@ -229,61 +229,7 @@ const GoogleServicesAjmer = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          Best Lead Generation Company in Ajmer | SEOcial Media Solutions
-        </title>
-        <meta
-          name="description"
-          content="SEOcial Media Solutions is the top lead generation company in Ajmer, helping businesses attract high-quality leads through digital ads, landing pages, and conversion-focused strategies."
-        />
-        <meta
-          name="keywords"
-          content="lead generation company Ajmer, digital marketing Ajmer, performance marketing Ajmer, PPC services Ajmer, Facebook lead ads Ajmer, Google ads Ajmer, B2B lead generation Ajmer, SEOcial Media Solutions"
-        />
-        <meta name="author" content="SEOcial Media Solutions" />
-        <meta name="publisher" content="SEOcial Media Solutions" />
-        <meta name="robots" content="index, follow" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <link
-          rel="canonical"
-          href="https://seocialmedia.in/lead-generation-company-ajmer"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Top Lead Generation Company in Ajmer | SEOcial Media Solutions"
-        />
-        <meta
-          property="og:description"
-          content="Looking to grow your customer base? Get high-converting leads with Ajmer’s leading lead generation agency. We run targeted campaigns that drive real results."
-        />
-        <meta
-          property="og:image"
-          content="https://seocialmedia.in/images/og-ajmer-leads.jpg"
-        />
-        <meta
-          property="og:url"
-          content="https://seocialmedia.in/lead-generation-company-ajmer"
-        />
-        <meta
-          property="og:site_name"
-          content="SEOcial Media Solutions"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Ajmer’s Best Lead Generation Company | SEOcial Media"
-        />
-        <meta
-          name="twitter:description"
-          content="Boost your business with qualified leads using our expert lead generation services in Ajmer. We specialize in Google Ads, Facebook Ads, and landing page optimization."
-        />
-        <meta
-          name="twitter:image"
-          content="https://seocialmedia.in/images/og-ajmer-leads.jpg"
-        />
-      </Head>
+   
 
       <section className="bg-gradient-to-br from-green-50 via-white to-lime-50">
         <div className="px-4 py-16 md:px-16 lg:px-24">
