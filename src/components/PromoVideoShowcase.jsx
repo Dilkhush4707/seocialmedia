@@ -1,25 +1,35 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useId } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause, Volume2, VolumeX, ArrowRight, Star } from "lucide-react";
 import CountUp from "./CountUp";
 
-// ✅ Fixed VideoPlayer with stable IDs
 const VideoPlayer = ({ videoId, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const playerRef = useRef(null);
   const containerRef = useRef(null);
 
-  const uniqueId = useId();
-  const playerId = `player-${videoId}-${uniqueId}`;
-
   useEffect(() => {
-    if (!containerRef.current) return;
-    containerRef.current.id = playerId;
+    if (typeof window === "undefined") return; // ✅ Ensure it runs only client-side
+
+    const playerId = `player-${videoId}-${Math.random().toString(36).slice(2)}`;
+    if (containerRef.current) {
+      containerRef.current.id = playerId;
+    }
+
+    const loadYouTubeAPI = () => {
+      if (!window.YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      }
+    };
 
     const initializePlayer = () => {
-      if (playerRef.current) return;
+      if (!window.YT || !window.YT.Player) return;
 
       playerRef.current = new window.YT.Player(playerId, {
         videoId,
@@ -35,6 +45,7 @@ const VideoPlayer = ({ videoId, title }) => {
         events: {
           onReady: (event) => {
             event.target.playVideo();
+            setIsLoaded(true);
             setIsPlaying(true);
           },
           onStateChange: (event) => {
@@ -48,48 +59,29 @@ const VideoPlayer = ({ videoId, title }) => {
       });
     };
 
-    // Load script once
-    if (!document.getElementById("youtube-iframe-api")) {
-      const tag = document.createElement("script");
-      tag.id = "youtube-iframe-api";
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    }
+    loadYouTubeAPI();
 
     if (window.YT && window.YT.Player) {
       initializePlayer();
     } else {
-      if (!window._ytPlayers) window._ytPlayers = [];
-      window._ytPlayers.push(initializePlayer);
-
-      if (!window.onYouTubeIframeAPIReady) {
-        window.onYouTubeIframeAPIReady = () => {
-          window._ytPlayers.forEach((init) => init());
-        };
-      }
+      window.onYouTubeIframeAPIReady = initializePlayer;
     }
 
     return () => {
-      if (playerRef.current) playerRef.current.destroy();
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
     };
-  }, [playerId, videoId]);
+  }, [videoId]);
 
   const handlePlayPause = () => {
     if (!playerRef.current) return;
-    if (isPlaying) {
-      playerRef.current.pauseVideo();
-    } else {
-      playerRef.current.playVideo();
-    }
+    isPlaying ? playerRef.current.pauseVideo() : playerRef.current.playVideo();
   };
 
   const handleMute = () => {
     if (!playerRef.current) return;
-    if (isMuted) {
-      playerRef.current.unMute();
-    } else {
-      playerRef.current.mute();
-    }
+    isMuted ? playerRef.current.unMute() : playerRef.current.mute();
     setIsMuted(!isMuted);
   };
 
@@ -97,8 +89,13 @@ const VideoPlayer = ({ videoId, title }) => {
     <div className="w-full relative rounded-xl overflow-hidden shadow-xl transform transition-transform duration-300 hover:scale-[1.02]">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl opacity-75 blur group-hover:opacity-100"></div>
 
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+
       <div className="relative aspect-video">
-        {/* Direct iframe mount (no spinner, no lazy load) */}
         <div ref={containerRef} className="absolute inset-0" />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
@@ -136,7 +133,6 @@ const VideoPlayer = ({ videoId, title }) => {
   );
 };
 
-
 const DualVideoShowcase = () => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -168,7 +164,7 @@ const DualVideoShowcase = () => {
           <VideoPlayer videoId="M_EwFmLtG7g" title="SEOcial Media Solutions" />
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <div className="text-center space-y-8">
           <div className="relative inline-block group">
             <div
@@ -197,13 +193,7 @@ const DualVideoShowcase = () => {
             </div>
             <div className="hidden sm:block text-gray-400">|</div>
             <div className="text-gray-700 font-medium">
-              {/* <CountUp
-                from={150}
-                href={100}
-                separator=","
-                duration={2}
-                className="count-up-text"
-              />{" "} */} 100
+              <CountUp from={0} to={100} separator="," direction="up" duration={1} />
               {"+ Happy clients "}
             </div>
             <div className="hidden sm:block text-gray-400">|</div>
