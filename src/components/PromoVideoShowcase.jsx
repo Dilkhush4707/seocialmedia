@@ -1,6 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+"use client";
+
+import React, { useState, useEffect, useRef, useId } from "react";
 import { Play, Pause, Volume2, VolumeX, ArrowRight, Star } from "lucide-react";
-import CountUp from "./CountUp"
+import CountUp from "./CountUp";
+
+// ✅ Fixed VideoPlayer with stable IDs
 const VideoPlayer = ({ videoId, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -8,10 +12,15 @@ const VideoPlayer = ({ videoId, title }) => {
   const playerRef = useRef(null);
   const containerRef = useRef(null);
 
+  // Stable ID per component instance
+  const uniqueId = useId();
+  const playerId = `player-${videoId}-${uniqueId}`;
+
   useEffect(() => {
-    const playerId = `player-${videoId}-${Math.random().toString(36).slice(2)}`;
+    if (!containerRef.current) return;
     containerRef.current.id = playerId;
 
+    // Load YT API if not already
     if (!window.YT) {
       const tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
@@ -21,14 +30,12 @@ const VideoPlayer = ({ videoId, title }) => {
 
     const initializePlayer = () => {
       playerRef.current = new window.YT.Player(playerId, {
-        videoId: videoId,
+        videoId,
         playerVars: {
           autoplay: 1,
           mute: 1,
           controls: 0,
-          showinfo: 0,
           rel: 0,
-          enablejsapi: 1,
           modestbranding: 1,
           loop: 1,
           playlist: videoId,
@@ -57,11 +64,9 @@ const VideoPlayer = ({ videoId, title }) => {
     }
 
     return () => {
-      if (playerRef.current) {
-        playerRef.current.destroy();
-      }
+      if (playerRef.current) playerRef.current.destroy();
     };
-  }, [videoId]);
+  }, [playerId, videoId]);
 
   const handlePlayPause = () => {
     if (!playerRef.current) return;
@@ -161,7 +166,7 @@ const DualVideoShowcase = () => {
           <VideoPlayer videoId="M_EwFmLtG7g" title="SEOcial Media Solutions" />
         </div>
 
-        {/* Enhanced CTA Section */}
+        {/* CTA Section */}
         <div className="text-center space-y-8">
           <div className="relative inline-block group">
             <div
