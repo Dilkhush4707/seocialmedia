@@ -326,7 +326,7 @@ const GoogleBusinessServices = () => {
                     whileHover={scaleVariants.hover}
                   >
                     <div className="h-64 overflow-hidden">
-                      <img
+                      <Image
                         src={service.image}
                         alt={service.title}
                         width={600}

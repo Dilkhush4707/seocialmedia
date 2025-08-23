@@ -1,10 +1,11 @@
-'use client'
-import React, { useState } from 'react';
+"use client";
+import Image from "next/image";
+import React, { useState } from "react";
 
 const FloatingContact = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const phoneNumber = '+919461677122';
+  const phoneNumber = "+919461677122";
 
   const handleCallClick = () => {
     if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) {
@@ -18,9 +19,14 @@ const FloatingContact = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent("Hello! I'm interested in your services.");
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${message}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    const message = encodeURIComponent(
+      "Hello! I'm interested in your services."
+    );
+    const whatsappUrl = `https://wa.me/${phoneNumber.replace(
+      "+",
+      ""
+    )}?text=${message}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   const ActionButton = ({ onClick, icon, label, bgColor }) => (
@@ -30,7 +36,7 @@ const FloatingContact = () => {
         {label}
         <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-800"></div>
       </div>
-      
+
       <button
         onClick={onClick}
         className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 transform hover:scale-110 active:scale-95 ${bgColor} relative z-10`}
@@ -47,15 +53,18 @@ const FloatingContact = () => {
         <div
           className={`flex flex-col gap-3 md:gap-4 items-end mb-3 md:mb-4 transition-all duration-500 transform ${
             isOpen
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10 pointer-events-none'
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10 pointer-events-none"
           }`}
         >
-          <ActionButton 
+          <ActionButton
             onClick={handleWhatsAppClick}
             icon={
-              <svg viewBox="0 0 24 24" className="w-full h-full text-white fill-current">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967..."/>
+              <svg
+                viewBox="0 0 24 24"
+                className="w-full h-full text-white fill-current"
+              >
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967..." />
               </svg>
             }
             label="Chat on WhatsApp"
@@ -64,8 +73,11 @@ const FloatingContact = () => {
           <ActionButton
             onClick={handleCallClick}
             icon={
-              <svg viewBox="0 0 24 24" className="w-full h-full text-white fill-current">
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56..."/>
+              <svg
+                viewBox="0 0 24 24"
+                className="w-full h-full text-white fill-current"
+              >
+                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56..." />
               </svg>
             }
             label="Call Us Now"
@@ -74,15 +86,19 @@ const FloatingContact = () => {
         </div>
 
         {/* Main Character Toggle */}
-        <div 
+        <div
           className="relative group"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Chat Bubble */}
-          <div className={`absolute bottom-full right-0 mb-3 md:mb-4 transition-all duration-500 ${
-            isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
-          }`}>
+          <div
+            className={`absolute bottom-full right-0 mb-3 md:mb-4 transition-all duration-500 ${
+              isOpen
+                ? "opacity-0 scale-95 pointer-events-none"
+                : "opacity-100 scale-100"
+            }`}
+          >
             <div className="bg-white rounded-2xl px-4 md:px-6 py-2 md:py-3 shadow-2xl border-2 border-purple-100 relative">
               <p className="text-base md:text-lg font-medium text-gray-800 whitespace-nowrap">
                 👋 How can I help you?
@@ -98,27 +114,32 @@ const FloatingContact = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="relative w-16 h-16 md:w-24 md:h-24 transition-all duration-500 transform hover:scale-110 active:scale-95"
           >
-            <div className={`relative w-full h-full rounded-full overflow-hidden transition-all duration-500 ${
-              isOpen ? 'scale-90' : 'scale-100'
-            }`}>
+            <div
+              className={`relative w-full h-full rounded-full overflow-hidden transition-all duration-500 ${
+                isOpen ? "scale-90" : "scale-100"
+              }`}
+            >
               {/* Gradient background */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500" />
-              
+
               {/* Avatar */}
-              <img
+              <Image
                 src="/images/smsavatar.png"
                 alt="Chat Character"
-                className={`relative w-full h-full object-cover transition-transform duration-500 ${
-                  isHovered ? 'scale-110' : 'scale-100'
-                }`}
+                width={48}
+                height={48}
+                className={`relative w-full h-full object-cover`}
               />
             </div>
 
             {/* Close button */}
             {isOpen && (
               <div className="absolute -top-1.5 -right-1.5 md:-top-2 md:-right-2 bg-red-500 rounded-full p-1.5 md:p-2 shadow-lg transition-transform duration-300 hover:scale-110">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 md:w-5 md:h-5 text-white fill-current">
-                  <path d="M19 6.41L17.59 5 12 10.59..."/>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 md:w-5 md:h-5 text-white fill-current"
+                >
+                  <path d="M19 6.41L17.59 5 12 10.59..." />
                 </svg>
               </div>
             )}

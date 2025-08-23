@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const BlogListClient =  () => {
+const BlogListClient = () => {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,6 +31,7 @@ const BlogListClient =  () => {
 
     fetchBlogs();
   }, []);
+
   // Pagination logic
   const totalPages = Math.ceil(blogs.length / blogsPerPage);
   const startIndex = (currentPage - 1) * blogsPerPage;
@@ -229,9 +230,11 @@ const BlogListClient =  () => {
               <Link href={`/blog/${blog.slug}`} className="block relative">
                 <div className="h-64 bg-gradient-to-br from-blue-400 to-purple-600 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black from-opacity-30 to-transparent z-10"></div>
-                  <img
+                  <Image
                     src={blog.image || "/images/placeholder.jpg"}
                     alt={blog.alt || blog.heading}
+                    width={600} // A reasonable width for the blog card
+                    height={400} // A reasonable height, maintaining a 3:2 aspect ratio
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute top-4 right-4 z-20">

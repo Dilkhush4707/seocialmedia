@@ -184,7 +184,7 @@ const ResponsiveBlogContent = ({content}) => {
     ),
     img: ({ src, alt }) => (
       <div className="my-8">
-        <img src={src} alt={alt} className="rounded-lg w-full h-auto object-cover" />
+        <Image src={src} alt={alt} className="rounded-lg w-full h-auto object-cover" />
         {alt && <p className="text-sm text-gray-500 mt-2 text-center italic">{alt}</p>}
       </div>
     ),

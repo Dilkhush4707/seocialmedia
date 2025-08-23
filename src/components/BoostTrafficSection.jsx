@@ -1,6 +1,15 @@
 // components/BoostTrafficSection.jsx
+"use client";
+
 import React from "react";
-import ContactForm from "./ContactForm";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import EnhancedLoader from "@/components/LoadingSpinner.jsx";
+// ✅ Lazy-load ContactForm only when needed
+const ContactForm = dynamic(() => import("./ContactForm"), {
+  ssr: false,
+  loading: () => <EnhancedLoader />,
+});
 
 const BoostTrafficSection = () => {
   return (
@@ -14,20 +23,22 @@ const BoostTrafficSection = () => {
             Boosts your <span className="text-blue-600">website</span> traffic!
           </h2>
 
-          {/* Form Inputs */}
-           
-<ContactForm/>
-         
-         
+          {/* Lazy-loaded Form */}
+          <ContactForm />
         </div>
 
         {/* Right Mobile Mockup with floating animation */}
         <div className="md:w-1/2 flex justify-center">
-          <img
-            src="/images/other/seo-jaipur.png"
-            alt="Credit Mobile UI"
-            className="w-full max-w-sm rounded-3xl shadow-xl animate-float"
-          />
+          <div className="w-full max-w-sm rounded-3xl shadow-xl animate-float">
+            <Image
+              src="/images/other/seo-jaipur.png"
+              alt="SEO Mobile Mockup"
+              width={400}
+              height={400}
+              className="rounded-3xl"
+              priority={false} // ✅ enables lazy loading
+            />
+          </div>
         </div>
       </div>
     </section>

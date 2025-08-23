@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Code, Search, PenTool, MousePointer, Share2,  
 Building 
 } from 'lucide-react';
-
+import Image from 'next/image';
 const ServicesCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -83,10 +83,12 @@ const ServicesCarousel = () => {
                   <div className="grid md:grid-cols-2">
                     {/* Image Section */}
                     <div className="relative h-48 md:h-[350px] overflow-hidden group">
-                      <img 
-                        src={service.image}
+                      <Image
+                        src={`/images/website-dev.jpg`} // <-- Add leading slash if using public folder
                         alt={service.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
+                        width={600}
+                        height={350}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-900/80 to-transparent transition-opacity duration-700 group-hover:opacity-75" />
                       

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBullhorn, FaUsers, FaCloud, FaChartLine, FaArrowRight } from 'react-icons/fa';
-
+import Image from 'next/image';
 const services = [
   {
     title: 'Business Marketing Strategy',
@@ -43,7 +43,7 @@ const ServicesSectionAjmer = () => {
             <div className="absolute ml-auto lg:ml-6 bottom-0 lg:bottom-auto  left-1/2 lg:-left-6 lg:top-1/2 transform -translate-x-1/2   lg:-translate-y-1/2 bg-purple-700 text-white p-3 rounded-full z-10 border-4 border-white shadow-md">
               {service.icon}
             </div>
-            <img
+            <Image
               src={service.image}
               alt={service.title}
               className="w-full h-40 object-cover rounded-xl"

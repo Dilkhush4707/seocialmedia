@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, Tag as TagIcon, ArrowRight } from 'lucide-react';
-
+import Image from "next/image";
 const RelatedPostCard = ({ post }) => {
   return (
     <div className="group relative flex flex-col bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
       {/* Image Container with Overlay */}
       <div className="relative aspect-[16/9] overflow-hidden">
-        <img
+        <Image
           src={post.featuredImage.url}
           alt={post.featuredImage.alt}
           className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"

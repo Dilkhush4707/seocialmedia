@@ -11,6 +11,7 @@ import {
   Linkedin,
   ExternalLink,
 } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -64,7 +65,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <img src="/images/footer-logo.jpg" alt="Company Logo" className="h-12 w-auto" />
+            <Image
+              src="/images/footer-logo.jpg"
+              alt="Company Logo"
+              width={120}
+              height={48}
+              className="h-12 w-auto"
+            />
             <p className="text-sm leading-relaxed">
               Empowering businesses with comprehensive digital marketing solutions that drive real growth. 
               Your trusted partner in the digital transformation journey.

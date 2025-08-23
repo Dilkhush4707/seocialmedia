@@ -1,5 +1,5 @@
-import SeoAjmer from '@/components/SeoAjmer'
-import React from 'react'
+import SeoAjmer from "@/components/SeoAjmer";
+import React from "react";
 export const metadata = {
   title: "Digital Marketing Services in Ajmer | SEOcial Media Solutions",
   description:
@@ -38,7 +38,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  return (
-    <SeoAjmer />
-  )
+  return <SeoAjmer />;
 }

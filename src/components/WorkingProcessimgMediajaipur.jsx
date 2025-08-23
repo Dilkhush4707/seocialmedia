@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-
+import Image from 'next/image';
 const services = [
   
   {
@@ -109,7 +109,7 @@ const WorkingProcessimgMediajaipur = () => {
 
         {/* Image */}
         <div className="flex order-1 max-w-[500px] items-center justify-center bg-white rounded-3xl p-0 md:p-8 shadow w-full h-[40%]">
-          <img
+          <Image
             src={services[activeIndex].image}
             alt={services[activeIndex].title}
             className="rounded-xl w-full h-auto object-cover"

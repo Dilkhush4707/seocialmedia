@@ -14,7 +14,7 @@ const SocialMediaHeroAjmer = () => {
         {/* Left Image Section */}
         <div className="relative flex justify-center w-full lg:w-1/2">
           {/* Main Image */}
-          <img
+          <Image
             src="/images/social-bg.jpg"
             alt="People with social icons"
             width={500}
@@ -33,7 +33,7 @@ const SocialMediaHeroAjmer = () => {
 
           {/* Circular Floating Image */}
           <div className="absolute bottom-0 transform -translate-x-1/2 lg:right-0 lg:translate-x-0">
-            <img
+            <Image
               src="/images/person-laptop.jpg"
               alt="Person with laptop"
               width={100}

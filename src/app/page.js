@@ -1,10 +1,11 @@
-"use client";
+'use client'
 import React, { useState, useEffect, useRef } from "react";
+import Head from "next/head";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
-import Head from "next/head";
+
 
 import ProductServicesPage from "@/components/ProductServicesPage";
 import ServicesCarousel from "@/components/ServicesCarousel";
@@ -309,17 +310,58 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>
-          Best Digital Marketing Agency in Jaipur | SEOcial Media Solutions
-        </title>
+        {/* Page Title */}
+        <title>Best Digital Marketing Company | SEOcial Media Solutions</title>
+
+        {/* Meta Tags */}
         <meta
           name="description"
-          content="Best Digital Marketing Agency in Jaipur delivering ROI-driven results. Expert services in SEO, Social Media, PPC & Content Marketing."
+          content="SEOcial Media Solutions is a top digital marketing agency in Jaipur. We offer expert SEO, social media, and web development services to help your business grow."
         />
-        <link rel="canonical" href="https://seocialmedia.in/" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-      </Head>
+        <meta
+          name="keywords"
+          content="Digital marketing Jaipur, SEO company, Social media marketing, Web development, Online promotion Jaipur"
+        />
+        <meta name="author" content="SEOcial Media Solutions" />
+        <meta name="publisher" content="SEOcial Media Solutions" />
 
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://seocialmedia.in" />
+
+        {/* Open Graph (Social Sharing) */}
+        <meta
+          property="og:title"
+          content="Best Digital Marketing Company | SEOcial Media Solutions"
+        />
+        <meta
+          property="og:description"
+          content="SEOcial Media Solutions is a top digital marketing agency in Jaipur. We offer expert SEO, social media, and web development services to help your business grow."
+        />
+        <meta property="og:url" content="https://seocialmedia.in" />
+        <meta property="og:site_name" content="SEOcial Media Solutions" />
+        <meta
+          property="og:image"
+          content="https://seocialmedia.in/images/og-home.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="SEOcial Media Solutions - Digital Marketing Agency in Jaipur"
+        />
+        <meta property="og:locale" content="en_IN" />
+        <meta property="og:type" content="website" />
+
+        {/* Other Meta Tags */}
+        <meta name="robots" content="index, follow" />
+        {/* Note: googleBot specific tags are not typically set directly with <Head> */}
+
+        {/* Schema Markup for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      </Head>
       <div className="relative">
         <h1 className="hidden">Best Digital Marketing Agency in Jaipur</h1>
         <HeroSection />

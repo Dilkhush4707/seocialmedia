@@ -425,7 +425,7 @@ const GoogleServicesJaipur = () => {
                     className="bg-white rounded-xl shadow-lg overflow-hidden"
                   >
                     <div className="h-64 overflow-hidden">
-                      <img
+                      <Image
                         src={service.image}
                         alt={service.title}
                         className="w-full h-full object-fit"

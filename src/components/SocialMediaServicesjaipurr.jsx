@@ -336,7 +336,7 @@ const SocialMediaServicesjaipurr = () => {
                       className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                     >
                       <div className="h-64 overflow-hidden">
-                        <img
+                        <Image
                           src={service.image}
                           alt={service.title}
                           className="w-full h-full object-cover"

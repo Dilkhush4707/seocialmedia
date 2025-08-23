@@ -452,7 +452,7 @@ const SeoAjmerpage = () => {
               {services.map((service) => (
                 <div key={service.title} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:scale-105 transition-transform duration-300">
                   <div className="h-64 overflow-hidden">
-                    <img
+                    <Image
                       src={service.image}
                       alt={service.title}
                       width={600}

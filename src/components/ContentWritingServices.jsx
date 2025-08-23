@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Head from 'next/head';
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -178,20 +178,7 @@ const ContentWritingServices = () => {
 
   return (
     <>
-    <Head>
-      <title>Best Content Writing Services in Jaipur | SEOcial Media Solutions</title>
-      <meta
-        name="description"
-        content="Create impactful and engaging content with SEOcial Media's professional content writing services. Enhance your online presence with quality content."
-      />
-      <meta name="keywords" content="IT services, content writing services, web development, SEO, digital marketing" />
-      <link rel="canonical" href="https://seocialmedia.in/content-writing-company-jaipur" />
-      <meta property="og:title" content="Best Content Writing Services in Jaipur | SEOcial Media Solutions" />
-      <meta property="og:description" content="Discover professional IT solutions tailored to your business needs." />
-      <meta property="og:image" content="https://seocialmedia.in/images/og-home.jpg" />
-      <meta property="og:url" content="https://seocialmedia.in/" />
-      <meta name="twitter:card" content="summary_large_image" />
-    </Head>
+   
 
     <section className="bg-gradient-to-br from-emerald-50 via-white to-teal-50">
       <div className="px-4 py-16 md:px-16 lg:px-24">
@@ -265,12 +252,12 @@ const ContentWritingServices = () => {
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="h-64 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
+                    <Image
+                      src={service.image || "/images/placeholder.jpg"}
+                      alt={service.alt || service.title}
+                      width={600} // A reasonable width for the service card
+                      height={400} // A reasonable height, maintaining a 3:2 aspect ratio
+                      className="w-full h-full object-cover transform "
                     />
                   </div>
                   <div className="p-8">

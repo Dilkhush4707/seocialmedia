@@ -23,7 +23,6 @@ import {
 import ServicesSectionAjmer from './ServicesSectionAjmer';
 import SocialMediaHeroAjmer from './SocialMediaHeroAjmer';
 
-
 const SocialMediaServicesAjmer = () => {
   const [openFaq, setOpenFaq] = useState(null);
 

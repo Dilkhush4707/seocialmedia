@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 const WebIntroSection = () => {
   return (
     <motion.div
@@ -34,10 +34,12 @@ const WebIntroSection = () => {
 
             {/* Image Section */}
             <div className="lg:w-1/3 flex justify-center">
-              <img 
+              <Image
                 src="/images/websitedevelopment.jpg"
                 alt="Web Development Services"
                 className="rounded-lg shadow-xl"
+                width={500}
+                height={300}
               />
             </div>
           </div>

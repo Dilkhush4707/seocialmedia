@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import { useState } from "react";
+
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Mail,
+  Phone,
+  MapPin,
   Send,
   Linkedin,
   Instagram,
@@ -18,34 +18,34 @@ import {
   Facebook,
   Clock,
   Shield,
-  HeartHandshake
-} from 'lucide-react';
+  HeartHandshake,
+} from "lucide-react";
 
-// Optimize animation variants by reducing complexity
+// Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.3 }
-  }
+    transition: { duration: 0.3 },
+  },
 };
 
 const ContactForm = () => {
-  const WEB3FORMS_API_KEY = '7b7f830a-9a11-433c-ade7-ff1a7129773d';
-  
+  const WEB3FORMS_API_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
-  
+
   const [status, setStatus] = useState({
     submitting: false,
     submitted: false,
-    error: null
+    error: null,
   });
 
   const contactInfo = [
@@ -54,20 +54,21 @@ const ContactForm = () => {
       title: "Phone",
       details: "+91 9461677122",
       contact: "+91 8949342270",
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-blue-500 to-cyan-500",
     },
     {
       icon: Mail,
       title: "Email",
       details: "info@seocialmedia.in",
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-purple-500 to-pink-500",
     },
     {
       icon: MapPin,
       title: "Location",
-      details: "1, Sagar, Shiv Shakti Nagar, Nirman Nagar, Jaipur, Rajasthan, 302019",
-      gradient: "from-green-500 to-emerald-500"
-    }
+      details:
+        "1, Sagar, Shiv Shakti Nagar, Nirman Nagar, Jaipur, Rajasthan, 302019",
+      gradient: "from-green-500 to-emerald-500",
+    },
   ];
 
   const socialLinks = [
@@ -75,27 +76,27 @@ const ContactForm = () => {
       icon: Instagram,
       href: "https://www.instagram.com/seocialmediasolutions/",
       gradient: "from-orange-500 to-red-500",
-      label: "Instagram"
+      label: "Instagram",
     },
     {
       icon: Linkedin,
       href: "https://www.linkedin.com/company/seocial-media-solution/",
       gradient: "from-blue-500 to-cyan-500",
-      label: "LinkedIn"
+      label: "LinkedIn",
     },
     {
       icon: Facebook,
       href: "https://www.facebook.com/profile.php?id=61564390163701",
       gradient: "from-purple-500 to-pink-500",
-      label: "Facebook"
-    }
+      label: "Facebook",
+    },
   ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -104,64 +105,49 @@ const ContactForm = () => {
     setStatus({ submitting: true, submitted: false, error: null });
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_API_KEY,
-          ...formData
-        })
+          ...formData,
+        }),
       });
 
       const data = await response.json();
-      
+
       if (data.success) {
-        setStatus({
-          submitting: false,
-          submitted: true,
-          error: null
-        });
+        setStatus({ submitting: false, submitted: true, error: null });
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: ''
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
         });
       } else {
-        throw new Error('Form submission failed');
+        throw new Error("Form submission failed");
       }
     } catch (err) {
       setStatus({
         submitting: false,
         submitted: false,
-        error: 'Failed to submit form. Please try again.'
+        error: "Failed to submit form. Please try again.",
       });
     }
   };
 
   return (
     <>
-    <Head>
-      <title>Best Digital Marketing and Web Development Company in Jaipur | SEOcial Media Solutions</title>
-      <meta
-        name="description"
-        content="Get in touch with SEOcial Media for expert digital marketing, website development, and SEO solutions. Let's grow your business together."
-      />
-      <meta name="keywords" content="IT services,best web development company, SEO, digital marketing" />
-      <link rel="canonical" href="https://seocialmedia.in/contact" />
-      <meta property="og:title" content="Best Digital Marketing and Web Development Company in Jaipur | SEOcial Media Solutions" />
-      <meta property="og:description" content="Discover professional IT solutions tailored to your business needs." />
-      <meta property="og:image" content="https://seocialmedia.in/images/og-home.jpg" />
-      <meta property="og:url" content="https://seocialmedia.in/" />
-      <meta name="twitter:card" content="summary_large_image" />
-    </Head>
-    <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <div className="px-4 py-16 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto">
+      
+
+      {/* Contact Section */}
+      <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <div className="px-4 py-16 md:px-16 lg:px-24 max-w-7xl mx-auto">
+          {/* Heading */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -175,11 +161,13 @@ const ContactForm = () => {
               Contact Us
             </h1>
             <p className="mt-6 text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
-              Ready to elevate your digital presence? Reach out to SEOcial Media Solutions 
-              and let&apos;s discuss how we can help grow your business.
+              Ready to elevate your digital presence? Reach out to SEOcial Media
+              Solutions and let&apos;s discuss how we can help grow your
+              business.
             </p>
           </motion.div>
 
+          {/* Contact Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {contactInfo.map((info, index) => (
               <motion.div
@@ -190,87 +178,30 @@ const ContactForm = () => {
                 variants={fadeInUp}
                 className="relative p-6 bg-white rounded-xl shadow-lg hover:-translate-y-1 transition-transform"
               >
-                <div className={`absolute inset-0 bg-gradient-to-r ${info.gradient} opacity-5 rounded-xl`} />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-r ${info.gradient} opacity-5 rounded-xl`}
+                />
                 <div className="relative flex flex-col items-center text-center">
-                  <div className={`bg-gradient-to-r ${info.gradient} p-3 rounded-xl mb-4`}>
+                  <div
+                    className={`bg-gradient-to-r ${info.gradient} p-3 rounded-xl mb-4`}
+                  >
                     <info.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800">{info.title}</h3>
+                  <h3 className="text-xl font-semibold text-gray-800">
+                    {info.title}
+                  </h3>
                   <p className="mt-2 text-gray-600">{info.details}</p>
-                  {info.contact && <span className="text-gray-600">{info.contact}</span>}
+                  {info.contact && (
+                    <span className="text-gray-600">{info.contact}</span>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-16 mb-16 bg-white rounded-3xl shadow-lg overflow-hidden"
-          >
-            <div className="p-8 md:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <h2 className="text-3xl font-bold text-gray-900">
-                    Expert Digital Solutions at Your Fingertips
-                  </h2>
-                  <p className="text-lg text-gray-600 leading-relaxed">
-                    Connect with Jaipur&apos;s best digital marketing agency for tailored web solutions, 
-                    SEO strategies, and social media expertise. Our dedicated team ensures your business 
-                    achieves maximum online visibility and engagement through data-driven approaches 
-                    and innovative digital marketing solutions.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl">
-                        <Clock className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">24/7 Support</h3>
-                        <p className="text-sm text-gray-600">Quick response guaranteed</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl">
-                        <Shield className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">Trusted Agency</h3>
-                        <p className="text-sm text-gray-600">Proven track record</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl">
-                        <HeartHandshake className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">Client Success</h3>
-                        <p className="text-sm text-gray-600">Results-driven approach</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="relative rounded-xl overflow-hidden">
-                  <img
-                    src="/images/contact-us.jpg"
-                    alt="Digital marketing expertise"
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover aspect-4/3"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-                    <div className="p-6 text-white">
-                      <p className="text-xl font-semibold">Leading Digital Marketing Agency in Jaipur</p>
-                      <p className="mt-2 text-sm opacity-90">Transforming businesses through digital excellence</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
+          {/* Message Form + Social Section */}
           <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Form */}
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -278,11 +209,15 @@ const ContactForm = () => {
               variants={fadeInUp}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold text-gray-900">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Send us a Message
+              </h2>
               <p className="text-lg text-gray-600">
-                Fill out the form below and we&apos;ll get back to you within 24 hours.
+                Fill out the form below and we&apos;ll get back to you within 24
+                hours.
               </p>
-              
+
+              {/* Alerts */}
               <AnimatePresence mode="wait">
                 {status.submitted && (
                   <motion.div
@@ -292,10 +227,12 @@ const ContactForm = () => {
                     className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-3"
                   >
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <p className="text-green-800">Message sent successfully! We&apos;ll be in touch soon.</p>
+                    <p className="text-green-800">
+                      Message sent successfully! We&apos;ll be in touch soon.
+                    </p>
                   </motion.div>
                 )}
-                
+
                 {status.error && (
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -309,6 +246,7 @@ const ContactForm = () => {
                 )}
               </AnimatePresence>
 
+              {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <input
@@ -383,6 +321,7 @@ const ContactForm = () => {
               </form>
             </motion.div>
 
+            {/* Social Links with Image */}
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -391,7 +330,7 @@ const ContactForm = () => {
               className="relative"
             >
               <div className="aspect-square rounded-2xl overflow-hidden">
-                <img
+                <Image
                   src="/images/contact-us.jpg"
                   alt="Contact illustration"
                   width={800}
@@ -419,8 +358,7 @@ const ContactForm = () => {
             </motion.div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };

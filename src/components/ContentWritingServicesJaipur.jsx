@@ -1,112 +1,126 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 
-import { 
-  PenTool, 
-  BookOpen, 
-  Edit, 
-  FileText, 
-  Mail, 
+import {
+  PenTool,
+  BookOpen,
+  Edit,
+  FileText,
+  Mail,
   Globe,
   Share2,
   CheckCircle,
   Users,
   ChevronDown,
   ChevronUp,
-  BarChart
-} from 'lucide-react';
+  BarChart,
+} from "lucide-react";
 
 const ContentWritingServicesJaipur = () => {
-
   const [openFAQ, setOpenFAQ] = useState(null);
 
   const toggleFAQ = (index) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
-  
+
   const faqData = [
     {
-      question: "What types of content writing services do you offer in Jaipur?",
-      answer: "At SEOcial Media Solutions, we offer a full suite of premium content writing services in Jaipur, tailored to elevate your online presence. Our specialties include SEO-optimized blog posts, high-converting website copy, persuasive sales content, engaging social media captions, and comprehensive long-form articles. Every piece is crafted by expert writers who blend creativity with SEO strategy, ensuring your content not only ranks on search engines but also connects with your target audience. Whether you're targeting a Jaipur-based audience or a global market, we customize every word to match your business goals."
+      question:
+        "What types of content writing services do you offer in Jaipur?",
+      answer:
+        "At SEOcial Media Solutions, we offer a full suite of premium content writing services in Jaipur, tailored to elevate your online presence. Our specialties include SEO-optimized blog posts, high-converting website copy, persuasive sales content, engaging social media captions, and comprehensive long-form articles. Every piece is crafted by expert writers who blend creativity with SEO strategy, ensuring your content not only ranks on search engines but also connects with your target audience. Whether you're targeting a Jaipur-based audience or a global market, we customize every word to match your business goals.",
     },
     {
       question: "How do you integrate AI into your content writing services?",
-      answer: "We harness advanced AI tools to streamline and enhance the content creation process. From AI-driven keyword research and topic clustering to competitor benchmarking and SEO structuring, we leverage technology to gain a competitive edge. However, the final content is refined by professional writers who infuse tone, creativity, and brand consistency. This human-AI collaboration ensures faster delivery, higher quality, and content that’s both data-informed and emotionally engaging."
+      answer:
+        "We harness advanced AI tools to streamline and enhance the content creation process. From AI-driven keyword research and topic clustering to competitor benchmarking and SEO structuring, we leverage technology to gain a competitive edge. However, the final content is refined by professional writers who infuse tone, creativity, and brand consistency. This human-AI collaboration ensures faster delivery, higher quality, and content that’s both data-informed and emotionally engaging.",
     },
     {
-      question: "How do you ensure content is tailored to my audience and brand voice?",
-      answer: "Customization is at the core of our process. We begin with a deep-dive into your brand identity and audience demographics to craft detailed personas and voice guidelines. During onboarding, we gather insights on your tone preferences—be it corporate, conversational, or storytelling. Our writers then create content that resonates with your audience’s values, addresses their pain points, and mirrors your brand voice. Multiple revision rounds ensure the content is perfectly aligned with your expectations."
+      question:
+        "How do you ensure content is tailored to my audience and brand voice?",
+      answer:
+        "Customization is at the core of our process. We begin with a deep-dive into your brand identity and audience demographics to craft detailed personas and voice guidelines. During onboarding, we gather insights on your tone preferences—be it corporate, conversational, or storytelling. Our writers then create content that resonates with your audience’s values, addresses their pain points, and mirrors your brand voice. Multiple revision rounds ensure the content is perfectly aligned with your expectations.",
     },
     {
       question: "Can your writing help improve my website's SEO and traffic?",
-      answer: "Absolutely! Our content is meticulously optimized for search engines using proven on-page SEO techniques—strategic keyword placement, semantic variation, meta tags, internal linking, and structured headings. We also follow Google’s E-A-T principles (Expertise, Authoritativeness, Trustworthiness) to build credibility and enhance rankings. Clients in Jaipur and beyond consistently see boosts in organic traffic, improved search visibility, and stronger user engagement through our data-backed strategies."
+      answer:
+        "Absolutely! Our content is meticulously optimized for search engines using proven on-page SEO techniques—strategic keyword placement, semantic variation, meta tags, internal linking, and structured headings. We also follow Google’s E-A-T principles (Expertise, Authoritativeness, Trustworthiness) to build credibility and enhance rankings. Clients in Jaipur and beyond consistently see boosts in organic traffic, improved search visibility, and stronger user engagement through our data-backed strategies.",
     },
     {
       question: "What types of content formats do you cover?",
-      answer: "We cover a wide array of content formats to meet your marketing goals. These include:\n• Blog Posts & Articles for SEO and authority\n• Website Copy for homepages, about, and service pages\n• Product Descriptions for e-commerce listings\n• Social Media Content for platforms like Instagram, Facebook, and LinkedIn\n• Email Campaigns & Newsletters for lead nurturing\nEvery format is optimized for readability, engagement, and search engine visibility."
+      answer:
+        "We cover a wide array of content formats to meet your marketing goals. These include:\n• Blog Posts & Articles for SEO and authority\n• Website Copy for homepages, about, and service pages\n• Product Descriptions for e-commerce listings\n• Social Media Content for platforms like Instagram, Facebook, and LinkedIn\n• Email Campaigns & Newsletters for lead nurturing\nEvery format is optimized for readability, engagement, and search engine visibility.",
     },
     {
       question: "Why choose SEOcial Media Solutions for content writing?",
-      answer: "We combine the best of both worlds—cutting-edge AI technology and expert human writers—to deliver content that ranks, engages, and converts. As a top-rated content writing agency in Jaipur, we emphasize performance, brand alignment, and results. Our services are scalable, affordable, and transparent, with clear reporting and open communication. Whether you're a startup, agency, or enterprise, we help you build a content strategy that fuels long-term growth and brand authority."
-    }
+      answer:
+        "We combine the best of both worlds—cutting-edge AI technology and expert human writers—to deliver content that ranks, engages, and converts. As a top-rated content writing agency in Jaipur, we emphasize performance, brand alignment, and results. Our services are scalable, affordable, and transparent, with clear reporting and open communication. Whether you're a startup, agency, or enterprise, we help you build a content strategy that fuels long-term growth and brand authority.",
+    },
   ];
-  
+
   const features = [
-    { 
-      name: "Blog Writing", 
+    {
+      name: "Blog Writing",
       category: "Content Creation",
-      description: "Well-researched blog articles that boost SEO, attract traffic, and position you as an industry leader.",
+      description:
+        "Well-researched blog articles that boost SEO, attract traffic, and position you as an industry leader.",
       icon: <PenTool className="w-6 h-6 text-white" />,
-      gradient: "from-emerald-500 to-teal-500"
+      gradient: "from-emerald-500 to-teal-500",
     },
-    { 
-      name: "Copywriting", 
+    {
+      name: "Copywriting",
       category: "Marketing",
-      description: "Conversion-focused copy that speaks to your audience and turns visitors into loyal customers.",
+      description:
+        "Conversion-focused copy that speaks to your audience and turns visitors into loyal customers.",
       icon: <Edit className="w-6 h-6 text-white" />,
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-purple-500 to-pink-500",
     },
-    { 
-      name: "Technical Writing", 
+    {
+      name: "Technical Writing",
       category: "Documentation",
-      description: "Precise, user-friendly documentation that simplifies complex ideas and enhances product clarity.",
+      description:
+        "Precise, user-friendly documentation that simplifies complex ideas and enhances product clarity.",
       icon: <FileText className="w-6 h-6 text-white" />,
-      gradient: "from-blue-500 to-indigo-500"
+      gradient: "from-blue-500 to-indigo-500",
     },
-    { 
-      name: "Email Writing", 
+    {
+      name: "Email Writing",
       category: "Communication",
-      description: "High-impact email sequences designed to engage your audience, nurture leads, and increase conversions.",
+      description:
+        "High-impact email sequences designed to engage your audience, nurture leads, and increase conversions.",
       icon: <Mail className="w-6 h-6 text-white" />,
-      gradient: "from-red-500 to-pink-500"
+      gradient: "from-red-500 to-pink-500",
     },
-    { 
-      name: "SEO Content", 
+    {
+      name: "SEO Content",
       category: "Optimization",
-      description: "Content strategically crafted to improve rankings, attract organic traffic, and deliver measurable results.",
+      description:
+        "Content strategically crafted to improve rankings, attract organic traffic, and deliver measurable results.",
       icon: <Globe className="w-6 h-6 text-white" />,
-      gradient: "from-green-500 to-emerald-500"
+      gradient: "from-green-500 to-emerald-500",
     },
-    { 
-      name: "Content Strategy", 
+    {
+      name: "Content Strategy",
       category: "Planning",
-      description: "Goal-driven content plans powered by data, ensuring your message reaches the right audience at the right time.",
+      description:
+        "Goal-driven content plans powered by data, ensuring your message reaches the right audience at the right time.",
       icon: <BookOpen className="w-6 h-6 text-white" />,
-      gradient: "from-orange-500 to-red-500"
+      gradient: "from-orange-500 to-red-500",
     },
-    { 
-      name: "Brand Story", 
+    {
+      name: "Brand Story",
       category: "Storytelling",
-      description: "Authentic, emotionally-driven brand storytelling that builds trust, loyalty, and deeper audience connection.",
+      description:
+        "Authentic, emotionally-driven brand storytelling that builds trust, loyalty, and deeper audience connection.",
       icon: <Share2 className="w-6 h-6 text-white" />,
-      gradient: "from-purple-500 to-indigo-500"
-    }
+      gradient: "from-purple-500 to-indigo-500",
+    },
   ];
-  
+
   const services = [
     {
       title: "Website Content",
@@ -117,8 +131,8 @@ const ContentWritingServicesJaipur = () => {
         "Boost in organic search visibility",
         "Stronger conversion potential",
         "Improved on-site engagement",
-        "Higher rankings on Google"
-      ]
+        "Higher rankings on Google",
+      ],
     },
     {
       title: "Blog Management",
@@ -129,8 +143,8 @@ const ContentWritingServicesJaipur = () => {
         "Consistent content delivery",
         "Targeted SEO keyword integration",
         "Increased authority in your niche",
-        "Enhanced long-term traffic growth"
-      ]
+        "Enhanced long-term traffic growth",
+      ],
     },
     {
       title: "Technical Content",
@@ -141,8 +155,8 @@ const ContentWritingServicesJaipur = () => {
         "Simplifies complex concepts",
         "Minimizes customer support queries",
         "Enhances product adoption",
-        "Boosts customer confidence and trust"
-      ]
+        "Boosts customer confidence and trust",
+      ],
     },
     {
       title: "Marketing Copy",
@@ -153,11 +167,10 @@ const ContentWritingServicesJaipur = () => {
         "Stronger brand messaging",
         "Higher click-through and conversion rates",
         "Increased campaign ROI",
-        "Improved audience targeting"
-      ]
-    }
+        "Improved audience targeting",
+      ],
+    },
   ];
-  
 
   const stats = [
     {
@@ -179,13 +192,15 @@ const ContentWritingServicesJaipur = () => {
       number: "250%",
       label: "Average ROI",
       icon: <BarChart className="w-6 h-6" />,
-    }
+    },
   ];
 
   return (
     <>
       <Head>
-        <title>Best Content Writing Services in Jaipur | SEOcial Media Solutions</title>
+        <title>
+          Best Content Writing Services in Jaipur | SEOcial Media Solutions
+        </title>
         <meta
           name="description"
           content="Create impactful and engaging content with SEOcial Media's professional content writing services. Enhance your online presence with quality content."
@@ -250,7 +265,9 @@ const ContentWritingServicesJaipur = () => {
                 Expert Content Writing Services That Drive Results
               </h2>
               <p className="mt-6 text-gray-600 text-lg md:text-xl max-w-3xl mx-auto">
-                Transform your digital presence with SEO-optimized, engaging content that connects with your audience and drives measurable business growth
+                Transform your digital presence with SEO-optimized, engaging
+                content that connects with your audience and drives measurable
+                business growth
               </p>
             </div>
 
@@ -263,7 +280,9 @@ const ContentWritingServicesJaipur = () => {
                       {stat.icon}
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-gray-900">{stat.number}</div>
+                  <div className="text-3xl font-bold text-gray-900">
+                    {stat.number}
+                  </div>
                   <div className="text-sm text-gray-600">{stat.label}</div>
                 </div>
               ))}
@@ -277,7 +296,9 @@ const ContentWritingServicesJaipur = () => {
                   className="relative p-6 group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="relative flex flex-col space-y-4">
-                    <div className={`bg-gradient-to-r ${feature.gradient} p-3 rounded-xl w-fit`}>
+                    <div
+                      className={`bg-gradient-to-r ${feature.gradient} p-3 rounded-xl w-fit`}
+                    >
                       {feature.icon}
                     </div>
                     <div>
@@ -299,8 +320,12 @@ const ContentWritingServicesJaipur = () => {
             {/* Services Section */}
             <div className="py-24">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">Comprehensive Writing Services</h2>
-                <p className="text-xl text-gray-600">Tailored content solutions to meet your business objectives</p>
+                <h2 className="text-4xl font-bold mb-4">
+                  Comprehensive Writing Services
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Tailored content solutions to meet your business objectives
+                </p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8">
@@ -310,20 +335,27 @@ const ContentWritingServicesJaipur = () => {
                     className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                   >
                     <div className="h-64 overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover"
+                      <Image
+                        src={service.image || "/images/placeholder.jpg"}
+                        alt={service.alt || service.title}
+                        width={600} // A reasonable width for the service card
+                        height={400} // A reasonable height, maintaining a 3:2 aspect ratio
+                        className="w-full h-full object-cover "
                       />
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                      <p className="text-gray-600 text-lg mb-6">{service.description}</p>
+                      <h3 className="text-2xl font-semibold mb-4">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-lg mb-6">
+                        {service.description}
+                      </p>
                       <div className="space-y-3">
                         {service.benefits.map((benefit) => (
-                          <div key={benefit} className="flex items-center space-x-2">
+                          <div
+                            key={benefit}
+                            className="flex items-center space-x-2"
+                          >
                             <CheckCircle className="w-5 h-5 text-emerald-500" />
                             <span className="text-gray-700">{benefit}</span>
                           </div>
@@ -344,8 +376,13 @@ const ContentWritingServicesJaipur = () => {
                       <FileText className="w-8 h-8 text-white" />
                     </div>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                  <p className="text-xl text-gray-600">Get answers to common questions about our content writing services</p>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                    Frequently Asked Questions
+                  </h2>
+                  <p className="text-xl text-gray-600">
+                    Get answers to common questions about our content writing
+                    services
+                  </p>
                 </div>
 
                 <div className="space-y-4">
@@ -369,10 +406,14 @@ const ContentWritingServicesJaipur = () => {
                           )}
                         </div>
                       </button>
-                      
-                      <div className={`overflow-hidden transition-all duration-300 ${
-                        openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                      }`}>
+
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${
+                          openFAQ === index
+                            ? "max-h-96 opacity-100"
+                            : "max-h-0 opacity-0"
+                        }`}
+                      >
                         <div className="px-6 py-5 bg-white border-t border-gray-100">
                           <p className="text-gray-700 leading-relaxed">
                             {faq.answer}
@@ -394,7 +435,8 @@ const ContentWritingServicesJaipur = () => {
                     Ready to Elevate Your Content Strategy?
                   </h2>
                   <p className="mt-4 text-gray-600 text-lg">
-                    Let's create content that connects, converts, and drives your business forward
+                    Let's create content that connects, converts, and drives
+                    your business forward
                   </p>
                   <div className="mt-8 space-x-4">
                     <Link

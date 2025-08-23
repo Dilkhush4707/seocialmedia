@@ -356,7 +356,7 @@ const VideoEditingJaipur = () => {
                 className="bg-white p-2 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-gray-200 overflow-hidden"
               >
                 <div className="w-full h-48 rounded-md mb-4 relative">
-                  <img
+                  <Image
                     src={step.image}
                     alt={step.title}
                     fill
@@ -405,7 +405,7 @@ const VideoEditingJaipur = () => {
                 className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
               >
                 <div className="h-48 relative">
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.name}
                     fill

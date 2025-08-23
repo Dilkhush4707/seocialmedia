@@ -1,7 +1,7 @@
 'use cleint'
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import Image from 'next/image';
 const WebIntroSectionAjmer = () => {
   return (
     <motion.div
@@ -35,10 +35,12 @@ const WebIntroSectionAjmer = () => {
 
             {/* Image Section */}
             <div className="lg:w-1/3 flex justify-center">
-              <img 
+              <Image
                 src="/images/websitedevelopment.jpg"
                 alt="Web Development Services in Ajmer"
                 className="rounded-lg shadow-xl"
+                width={500}
+                height={300}
               />
             </div>
           </div>

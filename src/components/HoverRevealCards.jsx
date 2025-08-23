@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Image from "next/image";
 const cards = [
   {
     title: "SEO & Marketing",
@@ -54,7 +54,7 @@ const HoverSlideCards = () => {
                 isActive ? "flex-[4]" : "flex-[1]"
               }`}
             >
-              <img
+              <Image
                 src={card.image}
                 alt={card.title}
                 className="absolute inset-0 w-full h-full object-cover"
@@ -92,7 +92,7 @@ const HoverSlideCards = () => {
             key={index}
             className="relative rounded-xl overflow-hidden shadow-lg"
           >
-            <img
+            <Image
               src={card.image}
               alt={card.title}
               className="w-full h-48 object-cover"
